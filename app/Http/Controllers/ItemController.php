@@ -9,16 +9,9 @@ class ItemController extends Controller
 {
     public function index()
     {
+ 
         return view('sample.index');
     }
-
-// homework 1-1　DBから取る
-    public function model( ) {
-        $items = item::all( );
-    return view('sample.model',compact('items'));
-    }
-
-
 
 
     public function store(Request $request){
@@ -30,9 +23,23 @@ class ItemController extends Controller
                  $item->save();
 
                  $items = item::all( );
-                 return view('sample.result',compact('items'));
-
-
+                 return view('sample.model',compact('items'));
     }
+
+    public function edit($id)
+    {
+                    $item = Item::find($id);
+                return view('sample.edit') -> with('item , $item');
+    }
+
+    public function update(Request $request,$id) {
+                    $item = Item::find($id);
+                    $item->name = $request->input('name');
+                    $item->category = $request->input('category');
+                    $item->price = $request->input('price');
+                    $item->save();
+                    return redirect( 'sample.model');
+    }
+
 }
 

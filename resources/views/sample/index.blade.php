@@ -4,16 +4,15 @@
 <meta charset="utf-8">
 <html> 
   <body>
-  <form action="{{url('/sample/result')}}" method="POST">
+  <form action="{{url('/sample/model')}}" method="POST">
   {{ csrf_field( ) }}
-<label for="name">アイテム名</label>
-<input type="text"name="name">
 
-<label for="name">カテゴリー</label>
-<input type="text"name="category_name">
+<input type="text"name="name" placeholder="アイテム名">
 
-<label for="name">価格</label>
-<input type="text"name="price">
+
+<input type="text"name="category_name" placeholder="カテゴリー">
+
+<input type="text"name="price" placeholder="価格">
 <input type="submit">
 </form>
 </html>

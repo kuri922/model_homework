@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// モデルから表示
-Route::get('sample/model', 'ItemController@model');
 
 // 登録後DB保存、完了画面を表示
 Route::get('/hello','ItemController@index');
-Route::get('sample/result','ItemController@store');
-Route::post('sample/result','ItemController@store')->name('result');
+Route::get('sample/model','ItemController@store');
+Route::post('sample/model','ItemController@store')->name('model');
+Route::get('sample/edit/{id}','ItemController@edit');
+
