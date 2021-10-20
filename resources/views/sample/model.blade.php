@@ -26,10 +26,11 @@ table td{
   @foreach($items as $item)
 
       <tr>
-            <td>{{$item->id}}</td> <td>{{$item->name}}</td> 
-            <td>{$item->category_name}}</td>
+            <td>{{$item->id}}</td>
+             <td>{{$item->name}}</td> 
+            <td>{{$item->category_name}}</td>
             <td>{{$item->price}}</td>
-            <td><a href="/sample.edit', {{$item->id}}">edit</a> </td>
+            <td><a href="/sample/edit/{{$item->id}}">edit</a> </td>
       </tr>
     
   @endforeach

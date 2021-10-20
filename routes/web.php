@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 
 
-// 登録後DB保存、完了画面を表示
+
 Route::get('/hello','ItemController@index');
 Route::get('sample/model','ItemController@store');
 Route::post('sample/model','ItemController@store')->name('model');
-Route::get('sample/edit/{id}','ItemController@edit');
+Route::get('sample/edit/{id}','ItemController@edit')->name('item.edit');
+Route::patch('sample/update/{id}', 'ItemController@update')->name('item.update');
 
