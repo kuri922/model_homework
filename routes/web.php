@@ -23,4 +23,5 @@ Route::get('sample/edit/{id}','ItemController@edit')->name('item.edit');
 Route::put('sample/edit/update/{id}','ItemController@update')->name('item.update');
 Route::get('sample/model','ItemController@show');
 Route::get('sample/index','ItemController@index');
+Route::post('item/delete/{id}', 'ItemController@destroy')->name('item.destroy');
 

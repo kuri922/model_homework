@@ -53,5 +53,14 @@ class ItemController extends Controller
                     return redirect('sample/model');
     }
 
+    public function destroy($id)
+  {
+    $item=Item::find($id);
+
+    $item->delete();
+
+    return redirect('sample/model');
+
 }
 
+}
