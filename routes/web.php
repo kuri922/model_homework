@@ -18,8 +18,9 @@ Route::get('/', function () {
 
 
 Route::get('/hello','ItemController@index');
-Route::get('sample/model','ItemController@store');
-Route::post('sample/model','ItemController@store')->name('model');
+Route::post('sample/store','ItemController@store')->name('model');
 Route::get('sample/edit/{id}','ItemController@edit')->name('item.edit');
-Route::patch('sample/update/{id}', 'ItemController@update')->name('item.update');
+Route::put('sample/edit/update/{id}','ItemController@update')->name('item.update');
+Route::get('sample/model','ItemController@show');
+Route::get('sample/index','ItemController@index');
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <html> 
   <body>
-  <form action="{{url('/sample/model')}}" method="POST">
+  <form action="{{url('/sample/store')}}" method="POST">
   {{ csrf_field( ) }}
 
 <input type="text"name="name" placeholder="アイテム名">

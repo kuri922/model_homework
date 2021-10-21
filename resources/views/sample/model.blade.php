@@ -36,6 +36,6 @@ table td{
   @endforeach
  
 
-  <button type="button" onClick="history.back()">新規登録</button>
+  <a href="/sample/index">新規画面</a> </td>
 </body>
 </html>

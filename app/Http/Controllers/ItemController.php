@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\models\Item;
 
 
@@ -12,6 +13,15 @@ class ItemController extends Controller
     {
  
         return view('sample.index');
+    }
+
+
+    public function show()
+    {
+        $items=DB::table('items')
+      ->select('id','name', 'category_name', 'price')
+      ->get();
+        return view('sample.model', compact('items'));
     }
 
 
@@ -36,11 +46,11 @@ class ItemController extends Controller
 
     public function update(Request $request,$id) {
                     $item = Item::find($id);
-                    $item->name = $request->input('name');
-                    $item->category = $request->input('category');
-                    $item->price = $request->input('price');
-                    $item->save( );
-                    return redirect( 'sample.model');
+                    $item['name']=$request->input('name');
+                    $item['category_name']=$request->input('category_name');
+                    $item['price']=$request->input('price');
+                    $item->update( );
+                    return redirect('sample/model');
     }
 
 }
