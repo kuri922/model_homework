@@ -28,6 +28,7 @@ class ItemController extends Controller
     public function store(Request $request){
 
                 $item= new Item( );
+                $item['id']=$request->input('id');
                  $item['name']=$request->input('name');
                  $item['category_name']=$request->input('category_name');
                  $item['price']=$request->input('price');

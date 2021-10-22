@@ -30,7 +30,7 @@ table td{
              <td>{{$item->name}}</td> 
             <td>{{$item->category_name}}</td>
             <td>{{$item->price}}</td>
-            <td><a href="/sample/edit/{$item->id}">edit</a> </td>
+            <td><a href="/sample/edit/{{$item->id}}">edit</a> </td>
             <td>
             <form action="/item/delete/{{$item->id}}" method="POST">
         {{ csrf_field() }}
