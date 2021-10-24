@@ -32,17 +32,19 @@ table td{
             <td>{{$item->price}}</td>
             <td><a href="/sample/edit/{{$item->id}}">edit</a> </td>
             <td>
-            <form action="/item/delete/{{$item->id}}" method="POST">
-        {{ csrf_field() }}
-        <input type="submit" class="btn btn-danger btn-dell" value="削除">
-        </form>
-
-            </td>
+        
+        
+      <form action="/sample/delete/{{$item->id}}" method="POST">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="DELETE">
+        
+          <input type="submit" class="btn btn-danger btn-dell" value="削除">
+ 
+      </form>
+          </td>
       </tr>
 
-    
-  @endforeach
- 
+      @endforeach
 
   <a href="/sample/index">新規画面</a> </td>
 </body>

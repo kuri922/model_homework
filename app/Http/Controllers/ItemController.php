@@ -56,11 +56,10 @@ class ItemController extends Controller
 
     public function destroy($id)
   {
-    $item=Item::find($id);
 
-    $item->delete();
-
-    return redirect('sample/model');
+      $item=Item::find($id);
+       $item->delete();
+     return redirect( ) ->to('sample/delete');
 
 }
 
