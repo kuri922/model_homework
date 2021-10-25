@@ -2,7 +2,7 @@
 
 
 
-
+<h1>編集画面</h1>
 <form action="/sample/edit/update/{{$item->id}}"method="POST">
 {{ csrf_field( ) }}
 

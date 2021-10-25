@@ -9,20 +9,25 @@ use App\models\Item;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
- 
-        return view('sample.index');
+        $items = item::all( );
+        return view('sample.index',compact('items'));
     }
 
+public function create( ) {
+  $items = Item::get( );
+  return view('sample.create');
+}
 
     public function show()
-    {
-        $items=DB::table('items')
-      ->select('id','name', 'category_name', 'price')
-      ->get();
-        return view('sample.model', compact('items'));
-    }
+   {
+  //     $items=DB::table('items')
+  //    ->select('id','name', 'category_name', 'price')
+  // ->get();
+      $items = Item::get( );
+         return view('sample.indexl', compact('items'));
+     }
 
 
     public function store(Request $request){
@@ -34,7 +39,7 @@ class ItemController extends Controller
                  $item['price']=$request->input('price');
                  $item->save();
                  $items = item::all( );
-                 return view('sample.model',compact('items'));
+                 return view('sample.index',compact('items'));
     
             
         }
@@ -51,15 +56,16 @@ class ItemController extends Controller
                     $item['category_name']=$request->input('category_name');
                     $item['price']=$request->input('price');
                     $item->update( );
-                    return redirect('sample/model');
+                    return redirect('sample/index');
     }
 
     public function destroy($id)
   {
-
-      $item=Item::find($id);
-       $item->delete();
-     return redirect( ) ->to('sample/delete');
+      
+                    $item=Item::find($id);
+                    //  $item->delete();
+                    $item->forceDelete( );
+                    return redirect( ) ->to('sample/index');
 
 }
 

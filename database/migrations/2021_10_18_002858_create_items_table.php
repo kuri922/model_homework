@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->string('category_name');
             $table->integer('price');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
